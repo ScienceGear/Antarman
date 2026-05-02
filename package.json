@@ -1,0 +1,9 @@
+{
+  "name": "antarman",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd backend && node server.js",
+    "dev": "cd backend && npx nodemon server.js",
+    "install": "cd backend && npm install"
+  }
+}
