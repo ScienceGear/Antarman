@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Antarman — Focus</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand"><span class="logo">Antarman</span></div>
+  <div class="header-right">
+    <div class="avatar-wrap">
+      <div class="avatar" id="avatar">?</div>
+      <span id="username-display">...</span>
+    </div>
+    <button id="gear-btn" title="Settings">⚙</button>
+    <button id="logout-btn" class="btn-logout">Logout</button>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val" id="stat-today-sessions">0</span><span class="stat-lbl">Today's Sessions</span></div>
+  <div class="stat"><span class="stat-val" id="stat-today-mins">0</span><span class="stat-lbl">Today's Minutes</span></div>
+  <div class="stat"><span class="stat-val" id="stat-total-sessions">0</span><span class="stat-lbl">All-Time Sessions</span></div>
+  <div class="stat"><span class="stat-val" id="stat-total-mins">0</span><span class="stat-lbl">All-Time Minutes</span></div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <!-- MODE TABS -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" data-mode="focus">Focus</button>
+    <button class="mode-tab" data-mode="short">Short Break</button>
+    <button class="mode-tab" data-mode="long">Long Break</button>
+  </div>
+
+  <!-- ACTIVE TASK -->
+  <div class="active-task" id="active-task">No task selected — pick one below</div>
+
+  <!-- TIMER RING -->
+  <div class="ring-wrap" id="ring-wrap">
+    <svg width="280" height="280" viewBox="0 0 280 280" style="transform:rotate(-90deg)">
+      <circle cx="140" cy="140" r="125" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="10"/>
+      <circle id="ring-fg" cx="140" cy="140" r="125" fill="none"
+        stroke="#7c3aed" stroke-width="10" stroke-linecap="round"
+        stroke-dasharray="785.4" stroke-dashoffset="0"
+        style="transition:stroke-dashoffset 0.9s linear"/>
+    </svg>
+    <div class="ring-center">
+      <div id="time-display">25:00</div>
+      <div id="mode-label">Focus</div>
+      <div id="session-counter">Session 1 of 4</div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <button class="ctrl-btn secondary" id="reset-btn">↺ Reset</button>
+    <button class="ctrl-btn primary" id="start-btn">▶ Start</button>
+  </div>
+  <div class="shortcut-hint">Space = Start / Pause</div>
+
+  <!-- QUOTE -->
+  <div id="quote" class="quote"></div>
+
+  <!-- TASK PANEL -->
+  <div class="card task-card">
+    <h3>📋 Tasks</h3>
+    <div class="task-input-row">
+      <input type="text" id="task-input" placeholder="Add a task…" maxlength="80"/>
+      <button id="add-task-btn">+</button>
+    </div>
+    <ul id="task-list"></ul>
+  </div>
+</main>
+
+<!-- SETTINGS DRAWER -->
+<div id="settings-overlay" class="settings-overlay">
+  <div class="settings-drawer">
+    <div class="drawer-header">
+      <h2>Settings</h2>
+      <button id="close-settings">✕</button>
+    </div>
+    <div class="setting-row"><label>Focus (min)</label><input type="number" id="s-focus" min="1" max="90"/></div>
+    <div class="setting-row"><label>Short Break (min)</label><input type="number" id="s-short" min="1" max="30"/></div>
+    <div class="setting-row"><label>Long Break (min)</label><input type="number" id="s-long" min="1" max="60"/></div>
+    <div class="setting-row">
+      <label>Auto-start next</label>
+      <label class="toggle"><input type="checkbox" id="s-auto"/><span class="slider"></span></label>
+    </div>
+    <div class="setting-row">
+      <label>Sound</label>
+      <label class="toggle"><input type="checkbox" id="s-sound"/><span class="slider"></span></label>
+    </div>
+    <button id="save-settings" class="btn-primary">Save</button>
+  </div>
+</div>
+
+<footer>Team Gear — Pranay Tanpure (Lead) &amp; Vipin Rathod · Tushar Supekar · Kartik Rokade · Virdhaval Sawant</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
