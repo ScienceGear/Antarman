@@ -101,7 +101,7 @@ async function onSessionEnd() {
 
   if (mode === 'focus') {
     focusRound++; sessionCount++;
-    sessionCounter.textContent = `Session ${sessionCount} of 4`;
+  sessionCounter.textContent = `Session ${sessionCount} of 4`;
     showQuote();
     const stats = await apiFetch('/user/session', {
       method: 'POST', body: JSON.stringify({ minutes: cfg.focusDuration })
